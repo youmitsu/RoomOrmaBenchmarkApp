@@ -12,6 +12,7 @@ import com.example.mitsuhori_y.roomormabenchmarkapp.orma.OrmaUserEntity;
 import com.example.mitsuhori_y.roomormabenchmarkapp.room.RoomRepository;
 import com.example.mitsuhori_y.roomormabenchmarkapp.room.RoomUserEntity;
 import com.example.mitsuhori_y.roomormabenchmarkapp.util.BenchMarker;
+import com.example.mitsuhori_y.roomormabenchmarkapp.util.RandomGenerater;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -38,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
         roomResult = findViewById(R.id.room_result);
 
         roomBtn = findViewById(R.id.room_btn);
+        RandomGenerater generater = new RandomGenerater();
         roomBtn.setOnClickListener(v -> {
-            RoomUserEntity roomUserEntity = new RoomUserEntity("fuga@hoge.com", "hoge", "1", "15");
-            roomRepository.getUserInsertSingle(roomUserEntity)
+            RoomUserEntity roomUserEntity = new RoomUserEntity(generater.getRandom(), "hoge", "1", "15");
+            roomRepository.getUserInsertSingle(roomUserEntity, new BenchMarker())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(s -> {
@@ -52,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         });
         ormaBtn = findViewById(R.id.orma_btn);
         ormaBtn.setOnClickListener(v -> {
-            OrmaUserEntity user = new OrmaUserEntity("fugafuga@gmail.com", "hoge", "1", "15");
-            ormaRepository.getUserInsertSingle(user)
+            OrmaUserEntity user = new OrmaUserEntity(generater.getRandom(), "hoge", "1", "15");
+            ormaRepository.getUserInsertSingle(user, new BenchMarker())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(s -> {

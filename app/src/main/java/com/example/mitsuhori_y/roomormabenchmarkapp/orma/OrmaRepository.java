@@ -12,15 +12,13 @@ import io.reactivex.Single;
 
 public class OrmaRepository {
     private final OrmaDatabase ormaDB;
-    private BenchMarker benchMarker;
 
     public OrmaRepository(Context context, BenchMarker marker) {
-        this.benchMarker = marker;
         this.ormaDB = OrmaDatabase.builder(context)
                 .build();
     }
 
-    public Single<Long> getUserInsertSingle(OrmaUserEntity user) {
+    public Single<Long> getUserInsertSingle(OrmaUserEntity user, BenchMarker benchMarker) {
         return Single.create(s -> {
             try {
                 benchMarker.startBenchMark(System.currentTimeMillis());

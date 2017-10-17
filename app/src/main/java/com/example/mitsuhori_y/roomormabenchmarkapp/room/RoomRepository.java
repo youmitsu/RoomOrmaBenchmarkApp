@@ -12,16 +12,14 @@ import io.reactivex.Single;
  */
 
 public class RoomRepository {
-    private BenchMarker benchMarker;
     private Context context;
     private final RmDatabase rmDatabase = App.get().getRoomDB();
 
     public RoomRepository(Context context, BenchMarker marker) {
-        this.benchMarker = marker;
         this.context = context;
     }
 
-    public Single<Long> getUserInsertSingle(RoomUserEntity user) {
+    public Single<Long> getUserInsertSingle(RoomUserEntity user, BenchMarker benchMarker) {
         return Single.create(s -> {
             try {
                 benchMarker.startBenchMark(System.currentTimeMillis());
