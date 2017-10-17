@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.mitsuhori_y.roomormabenchmarkapp.BenchMarker;
 
 import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by mitsuhori_y on 2017/10/16.
@@ -24,11 +26,26 @@ public class OrmaRepository {
         OrmaUserEntity user = new OrmaUserEntity("hoge@hoge.com", "hoge", "1", "15");
         BenchMarker benchMarker = new BenchMarker();
         benchMarker.startBenchMark(System.currentTimeMillis());
-        ormaDB.insertIntoOrmaUserEntity(user);
+        getUserInsertSingle(user)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> {
+
+                }, e -> {
+
+                });
         benchMarker.endBenchMark(System.currentTimeMillis());
     }
 
-    private Single<OrmaUserEntity> getUserInsertSingle() {
+    private Single<Long> getUserInsertSingle(OrmaUserEntity user) {
+        return Single.create(s -> {
+            try {
+                long result = ormaDB.insertIntoOrmaUserEntity(user);
+                s.onSuccess(result);
+            } catch (Exception e) {
+                s.onError(e);
+            }
+        });
     }
 
     public long getBenchMarkTime() {
