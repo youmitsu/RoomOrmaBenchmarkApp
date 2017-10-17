@@ -48,4 +48,20 @@ public class RoomUserEntity {
     public String getAge() {
         return age;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 }
