@@ -1,4 +1,4 @@
-package com.example.mitsuhori_y.roomormabenchmarkapp;
+package com.example.mitsuhori_y.roomormabenchmarkapp.presentation;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mitsuhori_y.roomormabenchmarkapp.R;
 import com.example.mitsuhori_y.roomormabenchmarkapp.orma.OrmaRepository;
 import com.example.mitsuhori_y.roomormabenchmarkapp.orma.OrmaUserEntity;
+import com.example.mitsuhori_y.roomormabenchmarkapp.util.BenchMarker;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -33,11 +35,8 @@ public class MainActivity extends AppCompatActivity {
         roomResult = findViewById(R.id.room_result);
 
         roomBtn = findViewById(R.id.room_btn);
-        roomBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        roomBtn.setOnClickListener(v -> {
 
-            }
         });
         ormaBtn = findViewById(R.id.orma_btn);
         ormaBtn.setOnClickListener(new View.OnClickListener() {

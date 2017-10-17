@@ -2,7 +2,7 @@ package com.example.mitsuhori_y.roomormabenchmarkapp.orma;
 
 import android.content.Context;
 
-import com.example.mitsuhori_y.roomormabenchmarkapp.BenchMarker;
+import com.example.mitsuhori_y.roomormabenchmarkapp.util.BenchMarker;
 
 import io.reactivex.Single;
 
