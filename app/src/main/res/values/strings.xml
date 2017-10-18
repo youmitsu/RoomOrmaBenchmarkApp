@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RoomOrmaBenchmarkApp</string>
+    <string name="degree_type">nano秒</string>
 </resources>

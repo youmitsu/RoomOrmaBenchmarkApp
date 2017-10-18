@@ -13,7 +13,7 @@ import io.reactivex.Single;
 public class OrmaRepository {
     private final OrmaDatabase ormaDB;
 
-    public OrmaRepository(Context context, BenchMarker marker) {
+    public OrmaRepository(Context context) {
         this.ormaDB = OrmaDatabase.builder(context)
                 .build();
     }
@@ -21,9 +21,9 @@ public class OrmaRepository {
     public Single<Long> getUserInsertSingle(OrmaUserEntity user, BenchMarker benchMarker) {
         return Single.create(s -> {
             try {
-                benchMarker.startBenchMark(System.currentTimeMillis());
+                benchMarker.startBenchMark();
                 long result = ormaDB.insertIntoOrmaUserEntity(user);
-                benchMarker.endBenchMark(System.currentTimeMillis());
+                benchMarker.endBenchMark();
                 s.onSuccess(benchMarker.result());
             } catch (Exception e) {
                 s.onError(e);

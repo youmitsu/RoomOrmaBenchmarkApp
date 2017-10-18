@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/small">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/small"
+        android:text="Insert(1件)"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/title"
+        android:background="#000000" />
+
+    <RelativeLayout
+        android:id="@+id/room_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/small">
+
+        <TextView
+            android:id="@+id/room_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Room"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/room_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/room_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="start" />
+
+        <TextView
+            android:id="@+id/room_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/room_text"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@id/room_btn"
+            android:text="ns"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/room_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/room_text"
+            android:layout_marginRight="@dimen/small"
+            android:layout_toLeftOf="@id/room_degree"
+            android:gravity="right"
+            android:text=""
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/orma_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/room_container">
+
+        <TextView
+            android:id="@+id/orma_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Orma"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/orma_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/orma_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="start" />
+
+        <TextView
+            android:id="@+id/orma_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/orma_text"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@id/orma_btn"
+            android:text="ns"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/orma_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/orma_text"
+            android:layout_marginRight="@dimen/small"
+            android:layout_toLeftOf="@id/orma_degree"
+            android:text=""
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

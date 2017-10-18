@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ormaRepository = new OrmaRepository(this, new BenchMarker());
-        roomRepository = new RoomRepository(this, new BenchMarker());
+        ormaRepository = new OrmaRepository(this);
+        roomRepository = new RoomRepository(this);
 
         ormaResult = findViewById(R.id.orma_result);
         roomResult = findViewById(R.id.room_result);

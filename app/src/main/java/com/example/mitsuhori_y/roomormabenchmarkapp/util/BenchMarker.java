@@ -11,12 +11,12 @@ public class BenchMarker {
     public BenchMarker() {
     }
 
-    public void startBenchMark(long start) {
-        this.start = start;
+    public void startBenchMark() {
+        this.start = System.nanoTime();
     }
 
-    public void endBenchMark(long end) {
-        this.end = end;
+    public void endBenchMark() {
+        this.end = System.nanoTime();
     }
 
     public long result() {
