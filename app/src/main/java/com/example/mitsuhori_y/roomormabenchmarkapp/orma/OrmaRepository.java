@@ -3,6 +3,7 @@ package com.example.mitsuhori_y.roomormabenchmarkapp.orma;
 import android.content.Context;
 
 import com.example.mitsuhori_y.roomormabenchmarkapp.util.BenchMarker;
+import com.example.mitsuhori_y.roomormabenchmarkapp.util.RandomGenerater;
 
 import io.reactivex.Single;
 
@@ -12,13 +13,16 @@ import io.reactivex.Single;
 
 public class OrmaRepository {
     private final OrmaDatabase ormaDB;
+    private final RandomGenerater generater;
 
     public OrmaRepository(Context context) {
         this.ormaDB = OrmaDatabase.builder(context)
                 .build();
+        this.generater = new RandomGenerater();
     }
 
-    public Single<Long> getUserInsertSingle(OrmaUserEntity user, BenchMarker benchMarker) {
+    public Single<Long> getUserInsertSingle(BenchMarker benchMarker) {
+        OrmaUserEntity user = new OrmaUserEntity(generater.getRandom(), "hoge", "1", "15");
         return Single.create(s -> {
             try {
                 benchMarker.startBenchMark();

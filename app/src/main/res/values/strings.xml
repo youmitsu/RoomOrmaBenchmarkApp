@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RoomOrmaBenchmarkApp</string>
     <string name="degree_type">nano秒</string>
+
+    <string name="insert_single">Insert(1件)</string>
+    <string name="insert_100">Insert(100件)</string>
 </resources>
