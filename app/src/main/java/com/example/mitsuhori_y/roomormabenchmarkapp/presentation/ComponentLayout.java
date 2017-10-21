@@ -86,7 +86,7 @@ public class ComponentLayout extends RelativeLayout {
         });
 
         ormaBtn.setOnClickListener(v -> {
-            ormaRepository.getUserInsertSingle(new BenchMarker())
+            ormaRepository.getDaoMethod(testType, new BenchMarker())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(s -> {
