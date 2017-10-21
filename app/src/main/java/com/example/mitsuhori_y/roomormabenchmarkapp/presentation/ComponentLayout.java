@@ -62,7 +62,7 @@ public class ComponentLayout extends RelativeLayout {
 
     private void initView(Context context) {
         View.inflate(context, R.layout.component, this);
-        roomRepository = new RoomRepository(new RandomGenerater());
+        roomRepository = new RoomRepository(context, new RandomGenerater());
         ormaRepository = new OrmaRepository(context);
 
         title = findViewById(R.id.title);
