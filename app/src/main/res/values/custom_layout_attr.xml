@@ -4,6 +4,7 @@
         <attr name="TestType" format="enum">
             <enum name="insert_single" value="0" />
             <enum name="insert_100" value="1" />
+            <enum name="select_all" value="2" />
         </attr>
     </declare-styleable>
 </resources>

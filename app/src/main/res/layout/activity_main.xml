@@ -22,5 +22,12 @@
             android:layout_below="@id/insert_single"
             custom:TestType="insert_100" />
 
+        <com.example.mitsuhori_y.roomormabenchmarkapp.presentation.ComponentLayout
+            android:id="@+id/select_all"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/insert_100"
+            custom:TestType="select_all" />
+
     </RelativeLayout>
 </ScrollView>

@@ -10,6 +10,7 @@ import java.util.Map;
 public enum TestType {
     INSERT_SINGLE(0),
     INSERT_100(1),
+    SELECT_ALL(2),
     UNKNOWN(99);
 
     private final int value;

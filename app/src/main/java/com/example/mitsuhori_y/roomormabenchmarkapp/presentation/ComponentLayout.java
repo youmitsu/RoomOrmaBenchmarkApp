@@ -108,6 +108,8 @@ public class ComponentLayout extends RelativeLayout {
             case INSERT_100:
                 t = getContext().getString(R.string.insert_100);
                 break;
+            case SELECT_ALL:
+                t = getContext().getString(R.string.select_all);
         }
         return t;
     }

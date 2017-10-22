@@ -4,6 +4,7 @@
 
     <string name="insert_single">Insert(1件)</string>
     <string name="insert_100">Insert(100件)</string>
+    <string name="select_all">Select_all</string>
 
     <string name="sample_name">hoge</string>
     <string name="sample_gender">1</string>

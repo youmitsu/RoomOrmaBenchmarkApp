@@ -73,4 +73,17 @@ public class RoomRepository extends BaseRepository {
             }
         });
     }
+
+    private Single<Long> getSelectAll(BenchMarker benchMarker) {
+        return Single.create(s -> {
+            try {
+                benchMarker.startBenchMark();
+                rmDatabase.roomUserDao().getAll();
+                benchMarker.endBenchMark();
+                s.onSuccess(benchMarker.result());
+            } catch (Exception e) {
+                s.onError(e);
+            }
+        });
+    }
 }
