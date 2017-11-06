@@ -4,20 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mitsuhori_y.roomormabenchmarkapp.R;
 import com.example.mitsuhori_y.roomormabenchmarkapp.orma.OrmaRepository;
 import com.example.mitsuhori_y.roomormabenchmarkapp.room.RoomRepository;
-import com.example.mitsuhori_y.roomormabenchmarkapp.util.BenchMarker;
 import com.example.mitsuhori_y.roomormabenchmarkapp.util.RandomGenerater;
 import com.example.mitsuhori_y.roomormabenchmarkapp.util.TestType;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by mitsuhori_y on 2017/10/18.
@@ -25,8 +19,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ComponentLayout extends RelativeLayout {
     private TextView title;
-    private Button roomBtn;
-    private Button ormaBtn;
     private TextView roomResult;
     private TextView ormaResult;
     private TestType testType;
@@ -66,37 +58,10 @@ public class ComponentLayout extends RelativeLayout {
         ormaRepository = new OrmaRepository(context);
 
         title = findViewById(R.id.title);
-        roomBtn = findViewById(R.id.room_btn);
-        ormaBtn = findViewById(R.id.orma_btn);
         ormaResult = findViewById(R.id.orma_result);
         roomResult = findViewById(R.id.room_result);
 
         title.setText(getTitle());
-
-        roomBtn.setOnClickListener(v -> {
-            roomRepository.getDaoMethod(testType, new BenchMarker())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(s -> {
-                        roomResult.setText(String.valueOf(s));
-                    }, e -> {
-                        Toast t = Toast.makeText(context, "なにがしかのエラー", Toast.LENGTH_SHORT);
-                        t.show();
-                    });
-        });
-
-        ormaBtn.setOnClickListener(v -> {
-            ormaRepository.getDaoMethod(testType, new BenchMarker())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(s -> {
-                        ormaResult.setText(String.valueOf(s));
-                    }, e -> {
-                        Toast t = Toast.makeText(context, "なにがしかのエラー", Toast.LENGTH_SHORT);
-                        t.show();
-                    });
-        });
-
     }
 
     private String getTitle() {
