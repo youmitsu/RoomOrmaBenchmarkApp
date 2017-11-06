@@ -41,23 +41,13 @@
             android:text="Room"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/room_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/room_text"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="start" />
-
         <TextView
             android:id="@+id/room_degree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/room_text"
-            android:layout_marginLeft="3dp"
-            android:layout_toLeftOf="@id/room_btn"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             android:text="ns"
             android:textSize="15sp" />
 
@@ -91,24 +81,13 @@
             android:text="Orma"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/orma_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="start" />
-
         <TextView
             android:id="@+id/orma_degree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/orma_text"
-            android:layout_marginLeft="3dp"
-            android:layout_toLeftOf="@id/orma_btn"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             android:text="ns"
             android:textSize="15sp" />
 
